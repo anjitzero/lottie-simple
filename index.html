@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>lottie</title>
+	<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+	<main>
+		<div class="svg hide" id="svg">
+		</div>
+		<button>Apply animation</button>
+	</main>
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.5/lottie.min.js" integrity="sha512-0bCDSnaX8FOD9Mq8WbHcDwshXwCB5V4EP+UBu87WQgga2b7lAsuEbaSmIZjH/XEmNhJuhrPbFHemre5HZwrk9w==" crossorigin="anonymous"></script>
+	<script>
+		window.addEventListener('DOMContentLoaded', (event) => {
+			const button = document.querySelector('button');
+			const svgContainer = document.getElementById('svg');
+			var animation = bodymovin.loadAnimation({
+  container: svgContainer, // Required
+  path: 'https://assets8.lottiefiles.com/animated_stickers/lf_tgs_emn0iC.json', // Required
+  renderer: 'svg', // Required
+  loop: false, // Optional
+  autoplay: false, // Optional
+  name: "Hello World", // Name for future reference. Optional.
+})
+
+			button.addEventListener('click', (e)=>{
+				svgContainer.classList.remove('hide')
+				animation.goToAndPlay(true, true)
+				console.log(animation)
+			})
+
+			animation.addEventListener('complete', e=>{
+				// svgContainer.classList.add('hide')
+
+			})
+
+
+
+
+
+
+
+		});
+
+		
+	</script>
+</body>
+</html>
